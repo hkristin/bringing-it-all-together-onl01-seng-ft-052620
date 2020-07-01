@@ -81,7 +81,7 @@ attr_reader :id
     dog = DB[:conn].execute(sql, name, breed)
     
      if !dog.empty?
-      Dog.find_by_id
+      Dog.find_by_id(dog[0][0])
     else
       dog = self.create(name: name, breed: breed)
     end
