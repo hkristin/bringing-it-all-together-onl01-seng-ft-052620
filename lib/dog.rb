@@ -71,13 +71,7 @@ attr_reader :id
   end
   
   def self.find_or_create_by(name:, breed:)
-    sql = <<-SQL
-    SELECT *
-    FROM dogs
-    WHERE name = ?
-    AND breed = ?
-    LIMIT 1
-    SQL
+    Dog.find_by_name(name: name)
     dog = DB[:conn].execute(sql, name, breed)
     
      if !dog.empty?
