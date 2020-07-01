@@ -78,7 +78,7 @@ attr_reader :id
     AND breed = ?
     LIMIT 1
     SQL
-    new_dog = DB[:conn].execute(sql, name, breed)
+    dog = DB[:conn].execute(sql, name, breed)
     
      if !dog.empty?
       dog_data = dog[0]
